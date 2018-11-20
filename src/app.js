@@ -9,7 +9,7 @@ import path from 'path'
 import MainRoutes from './routes/main-routes'
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch'
 import ErrorRoutes from './routes/error-routes'
-import jwt from 'koa-jwt'
+// import jwt from 'koa-jwt'
 import fs from 'fs'
 // import PluginLoader from './lib/PluginLoader'
 
@@ -19,22 +19,22 @@ const env = process.env.NODE_ENV || 'development' // Current mode
 const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
 
 app
-  .use((ctx, next) => {
-    if (ctx.request.header.host.split(':')[0] === 'localhost' || ctx.request.header.host.split(':')[0] === '127.0.0.1') {
-      // ctx.set('Access-Control-Allow-Origin', '*')
-      ctx.set('Access-Control-Allow-Origin', 'http://localhost:3000')
-    } else {
-      ctx.set('Access-Control-Allow-Origin', SystemConfig.HTTP_server_host)
-    }
-    ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-    ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
-    ctx.set('Access-Control-Allow-Credentials', true) // 允许带上 cookie
-    return next()
-  })
+  // .use((ctx, next) => {
+  //   if (ctx.request.header.host.split(':')[0] === 'localhost' || ctx.request.header.host.split(':')[0] === '127.0.0.1') {
+  //     // ctx.set('Access-Control-Allow-Origin', '*')
+  //     ctx.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+  //   } else {
+  //     ctx.set('Access-Control-Allow-Origin', SystemConfig.HTTP_server_host)
+  //   }
+  //   ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+  //   ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
+  //   ctx.set('Access-Control-Allow-Credentials', true) // 允许带上 cookie
+  //   return next()
+  // })
   .use(cors())
   .use(ErrorRoutesCatch())
   .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
-  .use(jwt({secret: publicKey}).unless({path: [/^\/public|\/user\/login|\/assets/]}))
+  // .use(jwt({secret: publicKey}).unless({path: [/^\/public|\/user\/login|\/assets/]}))
   .use(KoaBody({
     multipart: true,
     strict: false,

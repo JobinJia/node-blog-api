@@ -15,7 +15,7 @@ export let System = {
 }
 
 export let DB = {
-  host: '', // 服务器地址
+  host: 'www.yuexiaoya.cn', // 服务器地址
   port: 3306, // 数据库端口号
   username: 'root', // 数据库用户名
   password: 'Jiabinbin34...', // 数据库密码

@@ -1,7 +1,7 @@
 import sequelize from '../lib/sequelize'
 import Sequelized from 'sequelize'
 
-const Articel = sequelize.define('articel', {
+const Article = sequelize.define('article', {
   id: {
     field: 'id',
     type: Sequelized.INTEGER,
@@ -50,6 +50,12 @@ const Articel = sequelize.define('articel', {
     type: Sequelized.DATE,
     defaultValue: Sequelized.NOW,
     allowNull: false
+  },
+  del: {
+    field: 'del',
+    type: Sequelized.INTEGER,
+    defaultValue: 0,
+    allowNull: false
   }
 }, {
   freezeTableName: true,
@@ -65,8 +71,8 @@ const Articel = sequelize.define('articel', {
   // 要将 deletedAt 设置为 destroyTime (注意要启用paranoid)
   deletedAt: false, // 'destroyTime'
 
-  tableName: 'user'
+  tableName: 'article'
   // paranoid: true
 })
 
-export default Articel
+export default Article
