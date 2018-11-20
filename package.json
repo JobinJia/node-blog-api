@@ -1,0 +1,46 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "blog-api-server",
+  "author": "jobin",
+  "scripts": {
+    "start": "gulp nodemon",
+    "dev": "gulp",
+    "build": "babel src -d dist",
+    "production": "node dist/app.js"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.4.0",
+    "koa": "^2.6.2",
+    "koa-body": "^4.0.4",
+    "koa-compose": "^4.1.0",
+    "koa-cors": "0.0.16",
+    "koa-jwt": "^3.5.1",
+    "koa-router": "^7.4.0",
+    "koa-static2": "^0.1.8",
+    "mysql2": "^1.6.4",
+    "nodemailer": "^4.7.0",
+    "promise-mysql": "^3.3.1",
+    "require-directory": "^2.1.1",
+    "sequelize": "^4.41.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-nodemon": "^2.4.1",
+    "koa-logger": "^3.2.0"
+  }
+}
