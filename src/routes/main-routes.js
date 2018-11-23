@@ -23,5 +23,12 @@ router
   .delete(mergeUrl('/art/delArticle'), controllers.article.delArticle)
   .put(mergeUrl('/art/updArticle'), controllers.article.updArticle)
   .get(mergeUrl('/art/getArticle'), controllers.article.getArticle)
-
+  .post(mergeUrl('/tag/addTag'), controllers.tag.addTag)
+  .put(mergeUrl('/tag/updTag'), controllers.tag.updTag)
+  .delete(mergeUrl('/tag/delTag'), controllers.tag.delTag)
+  .get(mergeUrl('/tag/getTags', controllers.tag.getTags))
+  .post(mergeUrl('/cate/addCategory'), controllers.category.addCategory)
+  .put(mergeUrl('/cate/delCategory'), controllers.category.delCategory)
+  .delete(mergeUrl('/cate/delCategory'), controllers.category.delCategory)
+  .get(mergeUrl('/cate/getCategorys', controllers.category.getCategorys))
 module.exports = router
